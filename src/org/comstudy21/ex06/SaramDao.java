@@ -3,7 +3,7 @@ package org.comstudy21.ex06;
 import java.util.Vector;
 
 public class SaramDao {
-	public static Vector<SaramDto> saramList = new Vector<SaramDto>();
+	private static Vector<SaramDto> saramList = new Vector<SaramDto>();
 	static {
 		saramList.add(new SaramDto(1, "kim", "kim@aa.com", "010-1111-1111"));
 		saramList.add(new SaramDto(2, "lee", "lee@aa.com", "010-2222-2222"));
@@ -20,6 +20,29 @@ public class SaramDao {
 	}
 
 	public void insert(SaramDto saramDto) {
-		saramList.add(saramDto);		
+		if(saramDto != null) {
+			saramDto.setIdx(sequence++);
+			saramList.add(saramDto);
+		}			
+	}
+	
+	public void search(SaramDto saramDto) {
+		
+	}
+	
+	public void modify(SaramDto saramDto) {
+		
+	}
+	
+	public boolean delete(String name) {
+		if(saramList.remove(name)!=true) {
+			System.out.println("true");
+			
+			return true;
+			
+		} else {
+			System.out.println("false");
+			return false;
+		}
 	}
 }

@@ -7,11 +7,11 @@ public class SaramDto {
 	private String name;
 	private String email;
 	private String phone;
-	
+
 	public SaramDto() {
-		this(0,"","","");
+		this(0, "", "", "");
 	}
-	
+
 	public SaramDto(int idx, String name, String email, String phone) {
 		this.idx = idx;
 		this.name = name;
@@ -62,8 +62,7 @@ public class SaramDto {
 		vector.add(name);
 		vector.add(email);
 		vector.add(phone);
-		return null;
+		return vector;
 	}
-	
-	
+
 }
