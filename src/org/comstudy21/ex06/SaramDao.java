@@ -18,4 +18,8 @@ public class SaramDao {
 		}
 		return vector;
 	}
+
+	public void insert(SaramDto saramDto) {
+		saramList.add(saramDto);		
+	}
 }

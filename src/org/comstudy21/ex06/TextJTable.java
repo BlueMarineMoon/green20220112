@@ -111,9 +111,16 @@ public class TextJTable extends MyJFrame {
 				txtFld4.setText("");
 				// TalbeModel에 반영 해 주기.
 				// 이론 보다는 실기 -- 연습
-				tbModel.addRow(new Object[] {sequence++, name, email, phone});
+				// dao에 저장 후
+				dao.insert(new SaramDto(0, name, email, phone));
+				// list를 다시 그려 준다.
+				displayList();
+//				tbModel.addRow(new Object[] {sequence++, name, email, phone});
 			}
 		});
+		
+		
+		
 		searchBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(">>> searchBtn 클릭!");
@@ -136,8 +143,17 @@ public class TextJTable extends MyJFrame {
 				System.exit(0);
 			}
 		});
+	
 		
 			
+	}
+	
+	private void displayList() {
+		tbModel.setDataVector(null, columnNames);
+		Vector<Vector> saramList = dao.selectAll();
+		for(Vector vector : saramList) {
+			tbModel.addRow(vector);
+		}
 	}
 
 	public static void main(String[] args) {
